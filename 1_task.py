@@ -3,6 +3,7 @@ PRODUCTS = [
     ['яблоки', 100],
     ['швейцарский сыр', 1500],
     ['красная рыба', 450],
+    ['asdfsdfasdfasdfasfd', 432543155],
 ]
 
 
@@ -16,7 +17,7 @@ def create_formatted_receipt(products):
     receipt_lines.append(' ' + line + ' \r')
     receipt_lines.append("|" + empty_line + "|\r")
     for product, cost in products:
-        receipt_lines.append("|{0:18}{1:>10}|\r".format(product, str(cost) + " руб."))
+        receipt_lines.append("|{0:18}{1:>10}|\r".format(product[0:18], str(cost)[0:5] + " руб."))
     receipt_lines.append('|' + line + '|\r')
     return receipt_lines
 
