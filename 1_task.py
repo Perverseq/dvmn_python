@@ -11,13 +11,12 @@ def create_formatted_receipt(products):
     Функция сама не вызывает `print`, только готовит строки к последующему
     выводу на экран или печати."""
     receipt_lines = []
-    counter = 0
-    line = '_' * 30
+    line = '_' * 28
+    empty_line = " " * 28
     receipt_lines.append(' ' + line + ' \r')
-    receipt_lines.append("|" + " " * 30 + "|\r")
-    for product in PRODUCTS:
-        receipt_lines.append("|{0:20}{1:>10}|\r".format(PRODUCTS[counter][0], str(PRODUCTS[counter][1]) + " руб."))
-        counter += 1
+    receipt_lines.append("|" + empty_line + "|\r")
+    for product, cost in products:
+        receipt_lines.append("|{0:18}{1:>10}|\r".format(product, str(cost) + " руб."))
     receipt_lines.append('|' + line + '|\r')
     return receipt_lines
 
